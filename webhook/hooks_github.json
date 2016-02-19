@@ -1,0 +1,25 @@
+[
+  {
+    "id": "github",
+    "execute-command": "/data/StaticWebInDocker/script/redeploy.sh",
+    "command-working-directory": "/",
+    "trigger-rule":
+    {
+	"and":
+	  [
+	    {
+	      "match":
+	      {
+	        "type": "value",
+	        "value": "refs/heads/master",
+	        "parameter":
+	        {
+	          "source": "payload",
+	          "name": "ref"
+	        }
+	      }
+	    }
+	  ]
+	}
+  }
+]
