@@ -11,7 +11,7 @@
 * Auto deploy
 
 # Usage
-#### Step 1 : Fork  StaticWebInDocker
+#### Step 1 : Fork  StaticWebInDocker (if Bitbucket , Import StaticWebInDocker from Github)
 #### Step 2 : Copy id_rsa and id_rsa.pub to current directory on your server
 #### Step 3 : Edit Dockerfile with your config
 replace this line to your Github Repo URL
@@ -33,6 +33,7 @@ ADD https://github.com/antscript/StaticWebInDocker/raw/master/github_ssl/config 
 # RUN ssh-keyscan -t rsa bitbucket.org > ~/.ssh/known_hosts
 # ========= bitbucket end =========
 ```
+put your id_rsa.pub content to Github or Bitbucket
 #### Step 4 : Config https (if your do not want use https ,go to next setp)
 replace ssl.crt , ssl.key to your domain HTTPS certificate files in https folder
 edit default.conf in conf folder , uncomment https on block
@@ -51,19 +52,17 @@ ssl_ciphers  HIGH:!aNULL:!MD5;
 ssl_prefer_server_ciphers  on;
 # https on -------------------------------------------------
 ```
-rename hooks_xxx.json to hooks.json
-edit hooks.json
+edit start.sh
 
 ```
 ...
-"command-working-directory": "/",
--secure=true,
--cert="/data/StaticWebInDocker/ssl/ssl.crt",
--key="/data/StaticWebInDocker/ssl/ssl.key",
-"trigger-rule":
+nohup ./webhook_linux_amd64 -hooks /data/StaticWebInDocker/webhook/hooks.json -port=9000 -verbose &
+to
+nohup ./webhook_linux_amd64 -hooks /data/StaticWebInDocker/webhook/hooks.json -port=9000 -secure=true -cert="/data/StaticWebInDocker/https/ssl.crt" -key="/data/StaticWebInDocker/https/ssl.key" -verbose &
 ...
 ```
 #### Step 5 : Config webhook
+rename hooks_xxx.json to hooks.json
 edit hooks.json
 
 ```
@@ -86,7 +85,8 @@ Setting -> Webhooks  -> Add webhook
 Title : anything you like
 URL   : http(https)://yourdomain.com/hooks/uYFVn4e6TgzPc8Hu
 ```
-#### Step 6 : Build image and run container
+#### Setp 6 Commit your repo
+#### Step 7 : Build image and run container
 copy setup.sh to your server
 if only this website on your server , just run setup.sh 
 
@@ -107,4 +107,4 @@ docker run -d  -p --name=StaticWebInDocker StaticWebInDocker-Image
 ```
 sh setup.sh
 ```
-#### Step 7 : Test and have fun
+#### Step 8 : Test and have fun
