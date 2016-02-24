@@ -1,7 +1,7 @@
-# What is StaticWebInDocker ?
-#### StaticWebInDocker is a website tool
+# What is DockerWeb ?
+#### DockerWeb is a website tool.
 
-#### that allows you to easily create a website on your server
+#### that allows you to easily create a website on your server/vps/cloud etc..
 
 #### and auto deploy with Github or Bitbucket.
 
@@ -11,100 +11,37 @@
 * Auto deploy
 
 # Usage
-#### Step 1 : Fork  StaticWebInDocker (if Bitbucket , Import StaticWebInDocker from Github)
-#### Step 2 : Copy id_rsa and id_rsa.pub to current directory on your server
-#### Step 3 : Edit Dockerfile with your config
-replace this line to your Github Repo URL
+#### Step 1 : Fork and clone DockerWeb
+if Bitbucket , Import DockerWeb from Github
 
-```
-ARG GIT_URL=git@github.com:antscript/StaticWebInDocker.git
-```
-for Github , nothing to change
-for Bitbucket , comment gitbub block , uncomment bitbucket block
+#### Step 2 : SSH key (only Bitbucket require)
+copy or generate id_rsa and id_rsa.pub on your server : /root/.ssh/
 
-```
-# ========= github =========
-RUN ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
-ADD https://github.com/antscript/StaticWebInDocker/raw/master/github_ssl/config /root/.ssh/config
-# ========= github end =========
+#### Step 3 : HTTPS (if necessary)
+send your ssl.crt and ssl.key to server
 
+#### Step 4 : Edit setup/config.sh with your setting
 
-# ========= bitbucket =========
-# RUN ssh-keyscan -t rsa bitbucket.org > ~/.ssh/known_hosts
-# ========= bitbucket end =========
-```
-put your id_rsa.pub content to Github or Bitbucket
-#### Step 4 : Config https (if your do not want use https ,go to next setp)
-replace ssl.crt , ssl.key to your domain HTTPS certificate files in https folder
-edit default.conf in conf folder , uncomment https on block
+#### Setp 5 : Commit and push your repository
 
-```
-==> default.conf
-# https on ------------------------------------------------
-listen       443 ssl;
-error_page 497 https://$host$request_uri;
-ssl on;
-ssl_certificate /data/StaticWebInDocker/ssl/ssl.crt;
-ssl_certificate_key /data/StaticWebInDocker/ssl/ssl.key;
-ssl_session_cache    shared:SSL:1m;
-ssl_session_timeout  5m;
-ssl_ciphers  HIGH:!aNULL:!MD5;
-ssl_prefer_server_ciphers  on;
-# https on -------------------------------------------------
-```
-edit start.sh
-
-```
-...
-nohup ./webhook_linux_amd64 -hooks /data/StaticWebInDocker/webhook/hooks.json -port=9000 -verbose &
-to
-nohup ./webhook_linux_amd64 -hooks /data/StaticWebInDocker/webhook/hooks.json -port=9000 -secure=true -cert="/data/StaticWebInDocker/https/ssl.crt" -key="/data/StaticWebInDocker/https/ssl.key" -verbose &
-...
-```
-#### Step 5 : Config webhook
-rename hooks_xxx.json to hooks.json
-edit hooks.json
-
-```
-==> hooks.json
-replace id value to a random strings , for example:
-"id": "github",
-to
-"id": "uYFVn4e6TgzPc8Hu",
-```
-add webhook with random strings
-
+#### Step 6 : Add webhook
 ```
 #Github  
 Setting -> Webhooks & services -> add webhook
-Payload URL : http(https)://yourdomain.com/hooks/uYFVn4e6TgzPc8Hu
+Payload URL : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 ```
 ```
 #Bitbucket  
 Setting -> Webhooks  -> Add webhook
-Title : anything you like
-URL   : http(https)://yourdomain.com/hooks/uYFVn4e6TgzPc8Hu
-```
-#### Setp 6 Commit your repo
-#### Step 7 : Build image and run container
-copy setup.sh to your server
-if only this website on your server , just run setup.sh 
-
-```
-sh setup.sh
-```
-if multi-website on your server , edit setup.sh , run setup.sh
-
-```
-==> setup.sh
-# expose 80,443,9000 ports
-# docker run -d  -p 80:80 -p 443:443 -p 9000:9000 --name=StaticWebInDocker StaticWebInDocker-Image
-
-# expose nothing
-docker run -d  -p --name=StaticWebInDocker StaticWebInDocker-Image
+Title : title you want
+URL   : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 ```
 
-```
-sh setup.sh
-```
-#### Step 8 : Test and have fun
+#### Step 7 : Login your server , clone repo and run setup/setup.sh
+
+#### Step 8 : Visit your website
+
+#### Step 9 : Redeploy test
+
+# 3rd party tools and their licenses
+[webhook](https://github.com/adnanh/webhook)

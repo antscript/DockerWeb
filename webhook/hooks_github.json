@@ -1,7 +1,7 @@
 [
   {
-    "id": "github",
-    "execute-command": "/data/StaticWebInDocker/script/redeploy.sh",
+    "id": "webhook_id",
+    "execute-command": "/data/DockerWeb/script/redeploy.sh",
     "command-working-directory": "/",
     "trigger-rule":
     {
