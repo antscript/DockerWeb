@@ -4,16 +4,7 @@ MAINTAINER Docker antscript <antscript@gmail.com>
 RUN apt-get update && apt-get install -y ca-certificates git-core ssh
 
 
-#RUN mkdir /root/.ssh/
-
-#RUN ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
-#ADD temp/config /root/.ssh/config
-
-#ADD temp/id_rsa /root/.ssh/id_rsa
-#ADD temp/id_rsa.pub /root/.ssh/id_rsa.pub
-#RUN chmod 600 /root/.ssh/*
 ARG GIT_URL=your_git_url
-
 RUN mkdir -p /data/DockerWeb/
 WORKDIR /data
 RUN git clone $GIT_URL /data/DockerWeb/
