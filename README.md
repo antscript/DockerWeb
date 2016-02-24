@@ -16,13 +16,13 @@
 
 # Usage
 ### Step 1: Fork and clone DockerWeb
-**if Bitbucket , Import DockerWeb from Github**
+if Bitbucket , Import DockerWeb from Github
 
 ### Step 2: SSH key (only Bitbucket require)
-**copy or generate id_rsa and id_rsa.pub on your server : /root/.ssh/**
+copy or generate id_rsa and id_rsa.pub on your server : /root/.ssh/
 
 ### Step 3: HTTPS (if necessary)
-**send your ssl.crt and ssl.key to server**
+send your ssl.crt and ssl.key to server
 
 ### Step 4: Edit setup/config.sh with your setting
 
