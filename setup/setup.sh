@@ -10,7 +10,6 @@ cd ../docker
 mkdir -p temp
 if [[ $git_URL == *"github.com"* ]]
 then
-	# cp ../github_ssl/config temp
 	sed -e "s#webhook_id#$webhook_id#g" ../webhook/hooks_github.json >> temp/hooks.json
 	if [ $https = true ]
 	then	

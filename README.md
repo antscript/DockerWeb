@@ -1,14 +1,15 @@
+![docker+nginx](https://github.com/antscript/DockerWeb/raw/master/img/dockerweb.png)
 # What is DockerWeb ?
 #### DockerWeb is a website tool.
 
-#### that allows you to easily create a website on your server/vps/cloud etc..
+#### that allows you to easily create a website with static web page on your server/vps/cloud etc..
 
 #### and auto deploy with Github or Bitbucket.
 
 ***
 
 # Features
-* **In docker**
+* **In Docker container**
 * **Easy to use**
 * **Auto deploy**
 
@@ -26,7 +27,7 @@ send your ssl.crt and ssl.key to server
 
 ### Step 4: Edit setup/config.sh with your setting
 
-### Setp 5: Commit and push your repository
+### Step 5: Commit and push your repository
 
 ### Step 6: Add webhook
 ```
@@ -51,3 +52,7 @@ URL   : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 
 # 3rd party tools
 #### [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook)
+
+***
+
+[中文](https://github.com/antscript/DockerWeb/blob/master/README_CN.md)
