@@ -51,7 +51,7 @@ URL   : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 ***
 
 # Video tutorial
-* **Deploy a static website in 5 minutes with DockerWeb : ** <a href="https://www.youtube.com/watch?v=VQmeIzExRco" target="_blank">https://www.youtube.com/watch?v=VQmeIzExRco</a>
+* **Deploy a static website in 5 minutes with DockerWeb :** <a href="https://www.youtube.com/watch?v=VQmeIzExRco" target="_blank">https://www.youtube.com/watch?v=VQmeIzExRco</a>
 
 ***
 
