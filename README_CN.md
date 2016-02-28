@@ -10,7 +10,7 @@
 
 # 功能特点
 * **使用Docker container运行,易于维护，备份和迁移都极其方便**
-* **使用非常简单**
+* **使用非常简单** <a href="http://v.youku.com/v_show/id_XMTQ4NDUxNjcxNg==" target="_blank">通过DockerWeb五分钟搭建一个静态网站</a>
 * **可通过Github或Bitbucket的webhook自动部署更新**
 
 ***
@@ -50,5 +50,11 @@ URL   : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 
 ***
 
+# 视频演示
+* **通过DockerWeb五分钟搭建一个静态网站 : ** 
+<a href="http://v.youku.com/v_show/id_XMTQ4NDUxNjcxNg==" target="_blank">http://v.youku.com/v_show/id_XMTQ4NDUxNjcxNg==</a>
+<a href="https://www.youtube.com/watch?v=VQmeIzExRco" target="_blank">https://www.youtube.com/watch?v=VQmeIzExRco</a>
+
+***
 # 3rd party tools
 #### [https://github.com/adnanh/webhook](https://github.com/adnanh/webhook)
