@@ -2,9 +2,11 @@
 
 # config your site ===================================================================================
 
+# site domain (without http:// and www )
+site_domain="example.com"
+
 # site name you want
 site_name="your_site_name"
-
 
 # repository URL 																		==============
 # Github use https 	: https://github.com/user/repository.git 						<<== very import =

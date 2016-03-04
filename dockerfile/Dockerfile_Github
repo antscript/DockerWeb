@@ -11,6 +11,7 @@ RUN git clone $GIT_URL /data/DockerWeb/
 
 
 WORKDIR /data/DockerWeb
+RUN git checkout master
 
 RUN rm /etc/nginx/nginx.conf
 ADD temp/nginx.conf /etc/nginx/nginx.conf

@@ -29,6 +29,12 @@ else
 	fi
 fi
 
+if [ $multi_site = true ]
+then
+        sed -i "s#master#$site_name#g" ../docker/Dockerfile
+        sed -i "s#master#$site_name#g" temp/hooks.json
+fi
+
 
 
 # Config nginx http/https
@@ -36,13 +42,13 @@ if [ $https = true ]
 then
 	cp ../conf/nginx.conf temp/nginx.conf
 	cp ../conf/default_https.conf temp/default.conf
-	cp ../script/start_https.sh temp/start.sh
+	cp ../script/start.sh temp/start.sh
 	cp $https_path/ssl.crt temp/ssl.crt
 	cp $https_path/ssl.key temp/ssl.key
 else
 	cp ../conf/nginx.conf temp/nginx.conf
 	cp ../conf/default_http.conf temp/default.conf
-	cp ../script/start_http.sh temp/start.sh
+	cp ../script/start.sh temp/start.sh
 fi
 
 # Setup Docker
@@ -57,4 +63,10 @@ else
 fi
 
 # clean temp folder
-rm -rf ../docker
+# rm -rf ../docker
+
+# log setup
+mkdir /etc/dockerWeb -p
+echo $site_name >> /etc/dockerWeb/web.lst
+echo $site_domain >> /etc/dockerWeb/web.lst
+echo ${site_name}-web_https_${https} >> /etc/dockerWeb/web.lst

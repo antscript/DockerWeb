@@ -17,6 +17,7 @@ RUN git clone $GIT_URL /data/DockerWeb/
 
 
 WORKDIR /data/DockerWeb
+RUN git checkout master
 
 ADD temp/ssl.crt /data/https/ssl.crt
 ADD temp/ssl.key /data/https/ssl.key
