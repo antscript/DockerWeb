@@ -52,8 +52,8 @@ else
 fi
 
 # Setup Docker
-# docker build -t=$site_name-image --no-cache .
-docker build -t=$site_name-image .
+docker build -t=$site_name-image --no-cache .
+#docker build -t=$site_name-image .
 
 if [ $multi_site = true ]
 then
@@ -63,7 +63,7 @@ else
 fi
 
 # clean temp folder
-# rm -rf ../docker
+rm -rf ../docker
 
 # log setup
 mkdir /etc/dockerWeb -p

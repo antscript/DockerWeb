@@ -16,6 +16,12 @@
 ***
 
 # 用法
+
+* ### Step 0: 安装Docker和Git
+Docker : [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
+Git : [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+
 * ### **Step 1**: Fork DockerWeb 并克隆到本地
 如果是Bitbucket , 可直接从Github导入
 
@@ -50,6 +56,14 @@ URL   : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 
 ***
 
+# DockerWeb：部署多个网站
+管理和维护多个网站一种方法是直接创建多个仓库，将所有文件拷贝到仓库中，分别用单个网站的方式进行部署。
+另一种更优雅的管理多个网站的方式是使用仓库的分支：
+* 为不同网站创建分支，在对应分支上进行网站管理及维护
+* 为不同网站创建有不同id的webhook
+* 通过切换不同分支对不同网站进行部署
+
+***
 # 视频演示
 * **通过DockerWeb五分钟搭建一个静态网站 :** 
 <a href="http://v.youku.com/v_show/id_XMTQ4NDUxNjcxNg==" target="_blank">http://v.youku.com/v_show/id_XMTQ4NDUxNjcxNg==</a>

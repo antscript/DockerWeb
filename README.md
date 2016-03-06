@@ -16,6 +16,11 @@
 ***
 
 # Usage
+
+### Step 0: Install Docker and Git
+Docker : [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
+Git : [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
 ### Step 1: Fork and clone DockerWeb
 if Bitbucket , Import DockerWeb from Github
 
@@ -26,6 +31,7 @@ copy or generate id_rsa and id_rsa.pub on your server : /root/.ssh/
 send your ssl.crt and ssl.key to server
 
 ### Step 4: Edit setup/config.sh with your setting
+*if multi-web on host, let multi_site = true*
 
 ### Step 5: Commit and push your repository
 
@@ -44,9 +50,21 @@ URL   : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 
 ### Step 7: Login your server , clone repo and run setup/setup.sh
 
-### Step 8: Visit your website
+### Step 8: Run multi-web/init.sh (only multi-web require)
 
-### Step 9: Redeploy test
+### Step 9: Visit your website
+
+### Step 10: Redeploy with Github or Bitbucket
+
+
+***
+
+# Manage multiple web with git branch 
+you can create multiple git repository for deploy multiple web.
+another way to deploy multiple web with single repository :
+* create different branch for different web
+* add webhooks with different webhook_id
+* checkout and push branch for deploy web on current branch
 
 ***
 
