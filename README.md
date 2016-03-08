@@ -19,6 +19,7 @@
 
 ### Step 0: Install Docker and Git
 Docker : [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
+
 Git : [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Step 1: Fork and clone DockerWeb
@@ -55,6 +56,19 @@ URL   : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 ### Step 9: Visit your website
 
 ### Step 10: Redeploy with Github or Bitbucket
+
+### Step 11: Add to startup on server
+```
+#single web with dockerWeb
+cp path_to_dockerWeb/setup/dockerWebStartup /etc/init.d/
+echo "/bin/sh /etc/init.d/dockerWebStartup" >> /etc/rc.d/rc.local
+chmod +x /etc/rc.d/rc.local
+
+#multiple web with dockerWeb
+cp path_to_dockerWeb/multi-web/dockerWebStartup /etc/init.d/
+echo "/bin/sh /etc/init.d/dockerWebStartup" >> /etc/rc.d/rc.local
+chmod +x /etc/rc.d/rc.local
+```
 
 
 ***

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cat /etc/dockerWeb/web.lst | while read -r LINE
+do
+	site_container=${LINE}"-web"
+	read -r LINE
+	domain=${LINE}
+	read -r LINE
+	https=${LINE}
+
+	docker start ${site_container}
+done

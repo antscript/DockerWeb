@@ -19,6 +19,7 @@
 
 * ### Step 0: 安装Docker和Git
 Docker : [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
+
 Git : [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 
@@ -50,9 +51,24 @@ URL   : http(s)://yourdomain.com:9000/hooks/your_webhook_id
 
 * ### **Step 7**: 登陆服务器，克隆你提交的仓库并运行setup/setup.sh
 
-* ### **Step 8**: 访问你的网站
+* ### **Step 8**: 如果有多个网站，运行 multi-web/init.sh
 
-* ### **Step 9**: 使用Github或者Bitbucket进行部署更新
+* ### **Step 9**: 访问你的网站
+
+* ### **Step 10**: 使用Github或者Bitbucket进行部署更新
+
+* ### **Step 11**: 加入开机启动
+```
+#单个网站
+cp path_to_dockerWeb/setup/dockerWebStartup /etc/init.d/
+echo "/bin/sh /etc/init.d/dockerWebStartup" >> /etc/rc.d/rc.local
+chmod +x /etc/rc.d/rc.local
+
+#多个网站
+cp path_to_dockerWeb/multi-web/dockerWebStartup /etc/init.d/
+echo "/bin/sh /etc/init.d/dockerWebStartup" >> /etc/rc.d/rc.local
+chmod +x /etc/rc.d/rc.local
+```
 
 ***
 
