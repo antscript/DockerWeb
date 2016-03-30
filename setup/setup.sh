@@ -70,3 +70,8 @@ mkdir /etc/dockerWeb -p
 echo $site_name >> /etc/dockerWeb/web.lst
 echo $site_domain >> /etc/dockerWeb/web.lst
 echo ${site_name}-web_https_${https} >> /etc/dockerWeb/web.lst
+
+if [ $multi_site = true ]
+then
+	sh ../multi-web/init.sh
+fi
