@@ -17,7 +17,8 @@
 
 # 用法
 
-* ### Step 0: 安装Docker和Git
+
+* **Step 0**: 安装Docker和Git
 Docker : [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
 
 Git : [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
