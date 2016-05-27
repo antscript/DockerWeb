@@ -1,5 +1,6 @@
 ![docker+nginx](https://github.com/antscript/DockerWeb/raw/master/img/dockerweb.png)
 # What is DockerWeb ?
+[中文](https://github.com/antscript/DockerWeb/blob/master/README_CN.md)
 #### DockerWeb is a website tool.
 
 #### that allows you to easily create a website with static web page on your server/vps/cloud etc..
@@ -92,4 +93,5 @@ another way to deploy multiple web with single repository :
 
 ***
 
-[中文](https://github.com/antscript/DockerWeb/blob/master/README_CN.md)
+# License
+MIT license.
