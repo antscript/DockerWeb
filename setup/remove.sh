@@ -4,8 +4,8 @@ cd `dirname "$0"`
 
 
 # remove container
-docker stop $site_name-web
-docker rm $site_name-web
+docker stop $site_name
+docker rm $site_name
 
 # remove image
 docker rmi $site_name-image

@@ -12,7 +12,7 @@ if [[ $git_URL == *"github.com"* ]]
 then
 	sed -e "s#webhook_id#$webhook_id#g" ../webhook/hooks_github.json >> temp/hooks.json
 	if [ $https = true ]
-	then	
+	then
 		sed -e "s#your_git_url#$git_URL#g" ../dockerfile/Dockerfile_Github_https >> ../docker/Dockerfile
 	else
 		sed -e "s#your_git_url#$git_URL#g" ../dockerfile/Dockerfile_Github >> ../docker/Dockerfile
@@ -22,7 +22,7 @@ else
 	cp /root/.ssh/id_rsa.pub temp
 	sed -e "s#webhook_id#$webhook_id#g" ../webhook/hooks_bitbucket.json >> temp/hooks.json
 	if [ $https = true ]
-	then	
+	then
 		sed -e "s#your_git_url#$git_URL#g" ../dockerfile/Dockerfile_Bitbucket_https >> ../docker/Dockerfile
 	else
 		sed -e "s#your_git_url#$git_URL#g" ../dockerfile/Dockerfile_Bitbucket >> ../docker/Dockerfile
@@ -57,9 +57,9 @@ docker build -t=$site_name-image --no-cache .
 
 if [ $multi_site = true ]
 then
-	docker run -d --name=$site_name-web $site_name-image
+	docker run -d --name=$site_name $site_name-image
 else
-	docker run -d -p 80:80 -p 443:443 -p 9000:9000 --name=$site_name-web $site_name-image
+	docker run -d -p 80:80 -p 443:443 -p 9000:9000 --name=$site_name $site_name-image
 fi
 
 # clean temp folder
@@ -69,7 +69,7 @@ rm -rf ../docker
 mkdir /etc/dockerWeb -p
 echo $site_name >> /etc/dockerWeb/web.lst
 echo $site_domain >> /etc/dockerWeb/web.lst
-echo ${site_name}-web_https_${https} >> /etc/dockerWeb/web.lst
+echo ${site_name}_https_${https} >> /etc/dockerWeb/web.lst
 
 if [ $multi_site = true ]
 then

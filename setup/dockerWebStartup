@@ -2,7 +2,7 @@
 
 cat /etc/dockerWeb/web.lst | while read -r LINE
 do
-	site_container=${LINE}"-web"
+	site_container=${LINE}
 	read -r LINE
 	domain=${LINE}
 	read -r LINE
